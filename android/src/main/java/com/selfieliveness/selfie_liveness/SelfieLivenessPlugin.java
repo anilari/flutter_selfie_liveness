@@ -35,7 +35,7 @@ public class SelfieLivenessPlugin implements FlutterPlugin, ActivityAware, Metho
   private SelfieDelegate delegate;
   FlutterPluginBinding flutterPluginBinding;
   private MethodChannel channel;
-  private int PERMISSION_REQUEST_CODE=200;
+  private int PERMISSION_REQUEST_CODE=3089;
 
 
   @Override
@@ -75,9 +75,6 @@ public class SelfieLivenessPlugin implements FlutterPlugin, ActivityAware, Metho
     binding.addRequestPermissionsResultListener(this);
   }
 
-
-
-
   @Override
   public void onDetachedFromActivityForConfigChanges() {
 
@@ -94,10 +91,13 @@ public class SelfieLivenessPlugin implements FlutterPlugin, ActivityAware, Metho
 
   }
 
-
   @Override
   public boolean onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+	  if (resultCode == Activity.RESULT_OK) {
+        if (null != data && null != data.getExtras()) {
     delegate.onActivityResult(requestCode,resultCode,data);
+	  }
+	}
     return false;
   }
 
@@ -107,12 +107,10 @@ public class SelfieLivenessPlugin implements FlutterPlugin, ActivityAware, Metho
     int result3 = ContextCompat.checkSelfPermission(context, WRITE_EXTERNAL_STORAGE);
     return result1 == PackageManager.PERMISSION_GRANTED && result2 == PackageManager.PERMISSION_GRANTED && result3 == PackageManager.PERMISSION_GRANTED;
   }
+  
   private void requestPermission(Activity activity) {
-
     ActivityCompat.requestPermissions(activity, new String[]{CAMERA, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
-
   }
-
 
   public void initialize(){
     this.delegate= new SelfieDelegate(binding.getActivity());
@@ -133,10 +131,5 @@ public class SelfieLivenessPlugin implements FlutterPlugin, ActivityAware, Metho
 
   }
 
-
   //app functions and method
-
-
-
-
 }
