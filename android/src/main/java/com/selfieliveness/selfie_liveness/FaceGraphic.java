@@ -240,7 +240,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         else
         {
             Log.e(" Diff123Circel", "Not Contain");
-            tcFaceDetectionOverlay.changeStrokeColor(Color.RED);
+            tcFaceDetectionOverlay.changeStrokeColor(Color.argb(239, 108, 0, 1));
             eyeBlink.inCircle(false);
         }
 
