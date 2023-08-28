@@ -215,7 +215,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
                 case 0:
                     // Toast.makeText(activity, "Zoom In", Toast.LENGTH_SHORT).show();
 //                    imageViewCircleNew.setVisibility(View.INVISIBLE);
-                    tcFaceDetectionOverlay.changeStrokeColor(Color.RED);
+                    tcFaceDetectionOverlay.changeStrokeColor(Color.argb(239, 108, 0, 1));
                     eyeBlink.inCircle(false);
                     break;
                 case 1:
@@ -227,12 +227,12 @@ class FaceGraphic extends GraphicOverlay.Graphic {
                 case 2:
                     // Toast.makeText(activity, "Zoom out", Toast.LENGTH_SHORT).show();
 //                    imageViewCircleNew.setVisibility(View.INVISIBLE);
-                    tcFaceDetectionOverlay.changeStrokeColor(Color.RED);
+                    tcFaceDetectionOverlay.changeStrokeColor(Color.argb(239, 108, 0, 1));
                     eyeBlink.inCircle(false);
                     break;
                 default:
 //                    imageViewCircleNew.setVisibility(View.INVISIBLE);
-                    tcFaceDetectionOverlay.changeStrokeColor(Color.RED);
+                    tcFaceDetectionOverlay.changeStrokeColor(Color.argb(239, 108, 0, 1));
                     eyeBlink.inCircle(false);
 
             }

@@ -47,7 +47,7 @@ public class TransparentCircle extends View {
         eraser.setAntiAlias(true);
 
         stroke.setStyle(Paint.Style.STROKE);
-        stroke.setColor(Color.RED);
+        stroke.setARGB(239, 108, 0, 1);
         stroke.setStrokeWidth(6);
     }
 

@@ -74,7 +74,7 @@ class SelfieLiveness {
       throw Exception('platform not supported');
     }
     var response = await _channel.invokeMethod("detectliveliness", {
-          "msgselfieCapture": "Place your face inside the oval shaped panel",
+          "msgselfieCapture": "Place your face inside the oval",
           "msgBlinkEye": defaultTargetPlatform == TargetPlatform.iOS
               ? "Blink 3 Times"
               : "Blink Your Eyes",
