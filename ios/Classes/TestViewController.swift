@@ -253,7 +253,7 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         
        self.view.addSubview(imageView)
         self.view.addSubview(name)
-        self.view.addSubview(logo)
+        //self.view.addSubview(logo)
 
     }
     
