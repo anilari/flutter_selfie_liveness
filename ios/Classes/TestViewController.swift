@@ -220,9 +220,9 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
          
     
       //logo of your company
-        let logoPath = Bundle.main.path(forResource: assetPath, ofType: nil)!
-        let logo = UIImageView(image: UIImage(contentsOfFile: logoPath))
-        logo.frame =  CGRect(x: self.view.frame.width-120, y: self.view.frame.height*0.9, width: 100, height: 40)
+      //  let logoPath = Bundle.main.path(forResource: assetPath, ofType: nil)!
+      //  let logo = UIImageView(image: UIImage(contentsOfFile: logoPath))
+      //  logo.frame =  CGRect(x: self.view.frame.width-120, y: self.view.frame.height*0.9, width: 100, height: 40)
        
         
         
