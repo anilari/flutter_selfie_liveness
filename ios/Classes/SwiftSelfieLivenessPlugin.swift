@@ -66,7 +66,7 @@ public class SwiftSelfieLivenessPlugin: NSObject, FlutterPlugin, DismissProtocol
                    vc.assetPath = key
                    viewController.present(vc, animated: true, completion: nil)
                    vc.dismissDelegate = self
-                   vc.poweredBy = poweredBy
+                   //vc.poweredBy = poweredBy
                }
            }
        }
