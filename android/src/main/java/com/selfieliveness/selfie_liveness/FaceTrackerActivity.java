@@ -544,78 +544,7 @@ public final class FaceTrackerActivity extends AppCompatActivity {
                      * Eye blink start
                      * */
                     if (inCircle) {
-                        txtBlinkEye.setVisibility(View.VISIBLE);
-                        if (detectionResults.getDetectedItems() != null &&
-                                detectionResults.getDetectedItems().size() != 0) {
-                            for (int i = 0; i < detectionResults.getDetectedItems().size(); i++) {
-                                int key = detectionResults.getDetectedItems().keyAt(i);
-
-
-                                if (detectionResults.getDetectedItems().get(key) != null &&
-                                        detectionResults.getDetectedItems().get(key).getId() == face.getId()) {
-                                    Face mFace = detectionResults.getDetectedItems().get(key);
-
-
-                                    float left = mFace.getIsLeftEyeOpenProbability();
-                                    float right = mFace.getIsRightEyeOpenProbability();
-                                     float smile=    mFace.getIsSmilingProbability();
-                                    if ((left == Face.UNCOMPUTED_PROBABILITY) ||
-                                            (right == Face.UNCOMPUTED_PROBABILITY)) {
-                                        // Toast.makeText(FaceTrackerActivity.this, "Eyes are not detected", Toast.LENGTH_SHORT).show();
-                                        // At least one of the eyes was not detected.
-                                        return;
-                                    }
-
-                                    switch (state) {
-                                        case 0:
-                                            if ((left > OPEN_THRESHOLD) && (right > OPEN_THRESHOLD)) {
-                                                // Both eyes are initially open
-                                                state = 1;
-
-                                            }
-                                            break;
-
-                                        case 1:
-                                            if ((left < CLOSE_THRESHOLD) && (right < CLOSE_THRESHOLD)) {
-                                                // Both eyes become closed
-                                                state = 2;
-                                            }
-                                            break;
-
-                                        case 2:
-                                            if ((left > OPEN_THRESHOLD) && (right > OPEN_THRESHOLD)) {
-                                                // Both eyes are open again
-                                                state = 3;
-                                                txtBlinkEye.setText("Smile And Blink");
-                                            }
-                                            break;
-                                        case 3:
-                                            if (smile > SMILE_THRESHOLD) {
-                                                // Both eyes are open again
-                                                state = 4;
-                                            } 
-                                            break;
-                                        case 4:
-                                            if ((left < CLOSE_THRESHOLD) && (right < CLOSE_THRESHOLD)) {
-                                                // Both eyes become closed
-                                                state = 5;
-                                            }
-                                            break;
-
-                                        case 5:
-                                            if ((smile > SMILE_THRESHOLD)&&(left > OPEN_THRESHOLD) && (right > OPEN_THRESHOLD)) {
-                                                // Both eyes are open again
-                                               mPreview.takeImage();
-                                                state = 0;
-                                                inCircle = false;
-                                            }
-                                            break;
-                                    }
-                                }
-                            }
-                        }
-                    }else{
-                        txtBlinkEye.setVisibility(View.INVISIBLE);
+                      mPreview.takeImage();
                     }
                 }
             });
