@@ -315,11 +315,11 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
             let overlayCalculatedX = overlayCircle.frame.origin.x + overlayCircle.frame.width
             let overlayCalculatedY = overlayCircle.frame.origin.y + overlayCircle.frame.height
             
-            self.lblEyeBlink.isHidden = false
+       //     self.lblEyeBlink.isHidden = false
              
             if (overlayCalculatedX - faceCalculatedX) < 90 && (overlayCalculatedX - faceCalculatedX) > 0 && (overlayCalculatedY - faceCalculatedY) > 0 && (overlayCalculatedY - faceCalculatedY) < 90 {
                 DispatchQueue.main.async {
-                    self.lblEyeBlink.isHidden = false
+                 //   self.lblEyeBlink.isHidden = false
                     self.shape.strokeColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor
                     self.overlayCircle.layer.borderColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
                     weak var weakSelf = self
