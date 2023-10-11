@@ -315,7 +315,7 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
             let overlayCalculatedX = overlayCircle.frame.origin.x + overlayCircle.frame.width
             let overlayCalculatedY = overlayCircle.frame.origin.y + overlayCircle.frame.height
             
-       //     self.lblEyeBlink.isHidden = false
+            self.lblEyeBlink.isHidden = true
              
             if (overlayCalculatedX - faceCalculatedX) < 90 && (overlayCalculatedX - faceCalculatedX) > 0 && (overlayCalculatedY - faceCalculatedY) > 0 && (overlayCalculatedY - faceCalculatedY) < 90 {
                 DispatchQueue.main.async {
