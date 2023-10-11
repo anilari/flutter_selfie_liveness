@@ -540,11 +540,10 @@ public final class FaceTrackerActivity extends AppCompatActivity {
             mFaceGraphic.updateFace(FaceTrackerActivity.this, face,tcFaceDetectionOverlay.rectF, new updateEyeBlink() {
                 @Override
                 public void inCircle(boolean inCircle) {
-                    /**
-                     * Eye blink start
-                     * */
                     if (inCircle) {
                       mPreview.takeImage();
+                      state = 0;
+                      inCircle = false;
                     }
                 }
             });
