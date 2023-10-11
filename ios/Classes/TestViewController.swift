@@ -271,7 +271,6 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
         let faceDetectionRequest = VNDetectFaceLandmarksRequest(completionHandler: { (request: VNRequest, error: Error?) in
             DispatchQueue.main.async {
                 if let results = request.results as? [VNFaceObservation] {
-                    self.lblEyeBlink.isHidden = true
                     DispatchQueue.main.async {
                        self.handleFaceDetectionResults(results, sampleBuffer: sampleBuffer)
                         return;
