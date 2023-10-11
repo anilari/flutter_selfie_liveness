@@ -337,75 +337,10 @@ class TestViewController: UIViewController, AVCaptureVideoDataOutputSampleBuffer
                         
                         
                         
-                        for face in faces {
-                            let frame = face.frame
-                            var left : CGFloat = 0.0
-                            var right : CGFloat = 0.0
-                            var smile : CGFloat = 0.0
-                            if face.hasRightEyeOpenProbability {
-                             
-                               left = face.rightEyeOpenProbability
-                            }
-                            if face.hasLeftEyeOpenProbability {
-                                right = face.leftEyeOpenProbability
-                            }
-                            if(face.hasSmilingProbability)
-                            {
-                                smile=face.smilingProbability
-                                
-                            }
-                           print(self.state)
-                            print(right);
-                            print(left);
-                            switch self.state {
-                            case 0:
-                                self.lblEyeBlink.text = "Blink 3 Times";
-                                if left > self.Open_threshold && right > self.Open_threshold{
-                                    self.state = 1
-                                }
-                                break
-                            case 1:
-                                self.lblEyeBlink.text = "Blink 3 Times";
-                                if left < self.Close_threshold && right < self.Close_threshold{
-                                    self.state = 2
-                                }
-                                
-                                break
-                            case 2:
-                                self.lblEyeBlink.text = "Blink 3 Times";
-                                if left > self.Open_threshold && right > self.Open_threshold{
-
-                                    self.state=3
-                                }
-                                break
-                            case 3:
-                                self.lblEyeBlink.text = "Smile And Blink";
-                                if  smile > self.Smile_threshold{
-
-                                    self.state=4
-                                }
-                                break
-                            case 4:
-                                if left < self.Close_threshold && right < self.Close_threshold {
-                                 self.state=5
-                                }
-                                break
-                            case 5:
-                                if  smile > self.Smile_threshold && left > self.Open_threshold && right > self.Open_threshold {
-                                    self.mainBuffer = sampleBuffer
+            self.mainBuffer = sampleBuffer
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                         self.captureImageAfterBlink(sampleBuffer: self.mainBuffer!)
                                     }
-                                }
-                                
-                                
-                                break
-
-                            default:
-                                print("Default case")
-                            }
-                            
-                        }
                     }
 
                      
