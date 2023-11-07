@@ -1,8 +1,7 @@
 package com.selfieliveness.selfie_liveness;
 
 import static android.Manifest.permission.CAMERA;
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.Manifest.permission.READ_MEDIA_IMAGES;
 
 import android.app.Activity;
 import android.app.Application;
