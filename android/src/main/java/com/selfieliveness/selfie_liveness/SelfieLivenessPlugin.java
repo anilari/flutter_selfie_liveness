@@ -1,7 +1,6 @@
 package com.selfieliveness.selfie_liveness;
 
 import static android.Manifest.permission.CAMERA;
-import static android.Manifest.permission.READ_MEDIA_IMAGES;
 
 import android.app.Activity;
 import android.app.Application;
@@ -102,8 +101,7 @@ public class SelfieLivenessPlugin implements FlutterPlugin, ActivityAware, Metho
 
   private boolean checkPermission(Context context) {
     int result1 = ContextCompat.checkSelfPermission(context, CAMERA);
-    int result2 = ContextCompat.checkSelfPermission(context, READ_MEDIA_IMAGES);
-    return result1 == PackageManager.PERMISSION_GRANTED && result2 == PackageManager.PERMISSION_GRANTED;
+    return result1 == PackageManager.PERMISSION_GRANTED;
   }
   
   private void requestPermission(Activity activity) {
