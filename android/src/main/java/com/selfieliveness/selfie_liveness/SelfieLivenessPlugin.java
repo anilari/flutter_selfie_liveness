@@ -105,7 +105,7 @@ public class SelfieLivenessPlugin implements FlutterPlugin, ActivityAware, Metho
   }
   
   private void requestPermission(Activity activity) {
-    ActivityCompat.requestPermissions(activity, new String[]{CAMERA, READ_MEDIA_IMAGES}, PERMISSION_REQUEST_CODE);
+    ActivityCompat.requestPermissions(activity, new String[]{CAMERA}, PERMISSION_REQUEST_CODE);
   }
 
   public void initialize(){
