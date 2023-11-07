@@ -103,13 +103,12 @@ public class SelfieLivenessPlugin implements FlutterPlugin, ActivityAware, Metho
 
   private boolean checkPermission(Context context) {
     int result1 = ContextCompat.checkSelfPermission(context, CAMERA);
-    int result2 = ContextCompat.checkSelfPermission(context, READ_EXTERNAL_STORAGE);
-    int result3 = ContextCompat.checkSelfPermission(context, WRITE_EXTERNAL_STORAGE);
-    return result1 == PackageManager.PERMISSION_GRANTED && result2 == PackageManager.PERMISSION_GRANTED && result3 == PackageManager.PERMISSION_GRANTED;
+    int result2 = ContextCompat.checkSelfPermission(context, READ_MEDIA_IMAGES);
+    return result1 == PackageManager.PERMISSION_GRANTED && result2 == PackageManager.PERMISSION_GRANTED;
   }
   
   private void requestPermission(Activity activity) {
-    ActivityCompat.requestPermissions(activity, new String[]{CAMERA, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
+    ActivityCompat.requestPermissions(activity, new String[]{CAMERA, READ_MEDIA_IMAGES}, PERMISSION_REQUEST_CODE);
   }
 
   public void initialize(){
